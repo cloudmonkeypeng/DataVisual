@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Tabs - Sortable</title>
+	<link rel="stylesheet" href="../css/jquery-ui-1.10.3.custom.min.css">
+	<script src="../js/jquery-1.9.1.js"></script>
+	<script src="../js/jquery-ui-1.10.3.custom.min.js"></script> 
+	<script>
+	$(function(){
+		$( "#panel" ).buttonset();
+	});
+	</script>
+	<style>
+	#panel{
+		/*background-color: #d3d3d3;*/
+	}
+	#panel-control {
+		margin:0 auto;
+		width: 250px;
+	};
+	#centre{
+		background: #fff;
+		width:100%;
+		height:100px;
+	}
+	</style>
+</head>
+<body>
+<div id="panel">
+	<div id="panel-control">
+		<input type="checkbox" id="panel1"><label for="panel1">表格</label>
+		<input type="checkbox" id="panel2" checked="checked"><label for="panel2">流程图</label>
+		<input type="checkbox" id="panel3"><label for="panel3">关系图</label>
+	</div>
+</div>
+<div id="centre">
+	<div>
+		<input>
+	</div>
+	<div>
+	</div>
+	<div>
+	</div>
+</div>
+</body>
+</html>
