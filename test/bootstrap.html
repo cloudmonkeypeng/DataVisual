@@ -14,7 +14,104 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="#">123123</a></li>
+          <li><a href="#">124124123</a></li>
+          <li class="active">12312312313</li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-default">某某某按钮1</button> 
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              123123
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">123123123</a></li>
+              <li><a href="#">314234234</a></li>
+            </ul>
+          </div>
+
+
+          <button type="button" class="btn btn-default">123123123</button>
+          <button type="button" class="btn btn-default">123123123</button>
+          <button type="button" class="btn btn-default">3124233123</button>
+        </div>
+      </div>
+      <div class="col-md-10">
+     <!--   <ul class="nav nav-tabs nav-justified">
+          <li><a href="#">表格</a></li>
+          <li><a href="#">关系图</a></li>
+          <li class="active"><a href="#">条形图</a></li>
+          <li><a href="#">折线图</a></li>
+        </ul>
+
+
+        <svg>
+          <defs>
+            <marker id="idArrow" viewBox="0 0 20 20" refX="0" refY="10" markerUnits="strokeWidth" markerWidth="3" markerHeight="10" orient="auto">
+              <path d="M 0 0 L 20 10 L 0 20 z" fill="purple" stroke="black"/>
+            </marker>
+          </defs>
+
+          <path d="M 50 450 l 0 -350"  stroke="blue"  stroke-width="3" fill="none"  marker-end="url(#idArrow)" />
+          <path stroke="purple" stroke-width="3" fill="none" d="M 50 450 H 600" marker-end="url(#idArrow)"  />
+          <line stroke="black" stroke-width="2"  x1="50" y1="50" x2="100" y2="150" marker-end="url(#idArrow)"></line>
+        </svg>
+      -->
+        <ul class="nav nav-tabs nav-justified" id="myTab">
+          <li class="active"><a href="#home" data-toggle="tab">表格</a></li>
+          <li><a href="#profile" data-toggle="tab">关系图</a></li>
+          <li><a href="#messages" data-toggle="tab">条形图</a></li>
+          <li><a href="#settings" data-toggle="tab">折线图</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane in active" id="home">表格内容
+            <button type="button" class="btn btn-default btn-xs"  data-toggle="modal" data-target="#myModal">
+              <span class="glyphicon glyphicon-stats"></span> 弹出条形图
+            </button>
+          </div>
+          <div class="tab-pane " id="profile">关系图内容</div>
+          <div class="tab-pane " id="messages">条形图内容</div>
+          <div class="tab-pane " id="settings">折线图内容</div>
+        </div>
+
+        <script>
+        $(function () {
+          $('#myTab').tab('show');
+
+          $('#myModal').modal();
+        })
+        </script>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">条形图</button>
+                <h4 class="modal-title" id="myModalLabel">展示条形图</h4>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">保存更改</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      
+      </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>

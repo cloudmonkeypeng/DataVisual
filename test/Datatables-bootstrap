@@ -5,12 +5,21 @@
 
 	<title>DataTables example - Bootstrap</title>
 	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 	<link rel="stylesheet" type="text/css" href="../css/dataTables.bootstrap.css">
 
 	<script type="text/javascript" language="javascript" src="../js/jquery-1.9.1.js"></script>
 	<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
 	<script type="text/javascript" language="javascript" src="../js/dataTables.bootstrap.js"></script>
-	<!--bootstap.min.js-->
+
+	<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+	<script src="../js/d3.v3.min.js"></script>
 	<script type="text/javascript" language="javascript" class="init">
 		$(document).ready(function() {
 			$('#example').dataTable();
@@ -19,14 +28,80 @@
 	<style type="text/css" class="init">
 		body { 
 			font-size: 140%; 
+		}
+
+		#panel{
 			margin: 0 auto;
-			width: 1000px;
+			width:  150px;
 		}
 	</style>
+	<script type="text/javascript">
+
+		var data = [];
+
+		for (var i = 25; i >= 0; i--) 
+			data =data.concat(Math.round(Math.random()*20));
+					
+		//弄成彩虹色
+			var w = 570;  
+            var h = 100;  
+            var barPadding = 2;  
+              
+            //Create SVG element  
+            var svg = d3.selectAll("svg")  
+                        .append("svg")  
+                        .attr("width", w)  
+                        .attr("height", h);  
+  
+            svg.selectAll("rect")  
+               .data(data)  
+               .enter()  
+               .append("rect")  
+               .attr("x", function(d, i) {  
+                    return i * (w / data.length);  
+               })  
+               .attr("y", function(d) {  
+                    return h - (d * 4);  
+               })  
+               .attr("width", w / data.length - barPadding)  
+               .attr("height", function(d) {  
+                    return d * 5;  
+               })  
+               .attr("fill", function(d) {  
+                    return "black";  
+               });  
+  
+            svg.selectAll("text")  
+               .data(data)  
+               .enter()  
+               .append("text")  
+               .text(function(d) {  
+                    return d;  
+               })  
+               .attr("text-anchor", "middle")  
+               .attr("x", function(d, i) {  
+                    return i * (w / data.length) + (w / data.length - barPadding) / 2;  
+               })  
+               .attr("y", function(d) {  
+                    return h - (d * 4) + 14;  
+               })  
+               .attr("font-family", "sans-serif")  
+               .attr("font-size", "11px")  
+               .attr("fill", "yellow");
+
+	</script>
 </head>
 
 <body>
-	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+	<br/>
+	<div id="panel">
+		<button type="button" class="btn btn-default">表格</button>
+		<button type="button" class="btn btn-default">关系图</button>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-md-6">
+			<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -496,6 +571,13 @@
 						<td>$3,120</td>
 					</tr>
 				</tbody>
-	</table>		
+			</table>		
+		</div>
+
+		<div class="col-md-6">
+			<svg>
+			</svg>
+		</div>
+	</div>
 </body>
 </html>
