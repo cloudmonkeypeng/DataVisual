@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<title>资金每日交易次数统计图</title>
+<head>
+<script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+<script src="../js/jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>资金每日交易次数统计图</h1>
+<h2>Internet Explorer 9+ Firefox 4+ Chrome 14+</h2>
+<div id="cal-heatmap"></div>
+<button id="previous" >上月</button>
+<button id="next" >下月</button>
+<div id="onClick-placeholder"></div>
+<script>
+	
+(function() {
+	
+	var cal = new CalHeatMap();
+
+	cal.init({
+		itemSelector: "#cal-heatmap",
+		domain: "month",
+		subDomain: "x_day",
+		data: "../data/datas-years.json",
+		start: new Date(2000, 0, 5),
+		domainLabelFormat: "%Y-%m",
+		cellSize: 20,
+		cellPadding: 5,
+		domainGutter: 20,
+		range: 4,
+		domainDynamicDimension: false,
+		subDomainTextFormat: "%d",
+		legend: [10,  40, 70, 100],
+		legendColors: {
+			empty: "#ededed",
+			min: "#40ffd8",
+			max: "#f20013"
+		},
+		previousSelector: "#previous",
+		nextSelector: "#next",
+		onClick: function(date, nb) {
+			
+			$("#onClick-placeholder").html(
+				"该账户在 <br/><b>" +
+				date + "</b> <br/>有 <b>" +
+				(nb === null ? "？" : nb) + "</b> 笔交易流水"
+			);
+	}
+
+	});
+})();
+
+
+			
+</script>
+</body>
+
+</html>
